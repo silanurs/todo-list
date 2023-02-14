@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>//Todo</title>
+    <title>// Todo</title>
     <script src="https://kit.fontawesome.com/578dda704c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
@@ -13,8 +13,6 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn">&times;</a>
         <a href="#"><i class="fa-solid fa-house"></i> Inbox</a>
-        <a href="#"><i class="fa-sharp fa-solid fa-calendar-day"></i> Today</a>
-        <a href="#"><i class="fa-solid fa-calendar-week"></i> Upcoming</a>
         <a href="#"><i class="fa-solid fa-list-check"></i> Projects</a>
         <a href="#"><i class="fa-solid fa-note-sticky"></i> Notes</a>
         <div class="addbtn">
@@ -25,8 +23,11 @@
         <span style="font-size:30px;cursor:pointer" class="open">&#9776;</span>
         <h1>// To-Do</h1>
       </div>
+      <main>
+
+      </main>
       <div id="container">
-        <span class="closeform">x</span>
+        <span class="closeform">	&#xD7;</span>
         <h2>Create a new...</h2> 
         <div id="select">
         <a href="#">Todo</a>
@@ -40,17 +41,17 @@
         <label for="details"></label>
         <textarea name="details" id="details" placeholder="Details: Watch tutorials, read documentation etc..." rows="10" cols="40"></textarea><br>
         <label for="date">Due Date:</label>
-        <input type="date"><br>
+        <input type="date" id="date"><br>
         <div id="priority">
         <span>Priority:  </span>
         <label for="low" class="low">Low</label>
-        <input type="radio" id="low" name="priority" required>
+        <input type="radio" id="low" name="priority" class="priority" required>
         <label for="medium" class="medium">Medium</label>
-        <input type="radio" id="medium" name="priority" required>
+        <input type="radio" id="medium" name="priority" class="priority" required>
         <label for="high" class="high">High</label>
-        <input type="radio" id="high" name="priority" required>
+        <input type="radio" id="high" name="priority" class="priority" required>
         </div>
-        <button type="button">Submit</button>
+        <button type="button" class="submit">Submit</button>
 
       </form>
       </div>
