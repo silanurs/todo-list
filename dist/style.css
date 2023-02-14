@@ -1,3 +1,13 @@
+:root{
+  --sidenav: #055256;
+  --icons: #def9fa;
+  --menu: #9ab8ba;
+  --text: #13282b;
+}
+
+
+
+
 body {
     font-family: "Lato", sans-serif;
   }
@@ -13,7 +23,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #adedd5;
+    background-color: var(--sidenav);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -23,13 +33,13 @@ body {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color:var(--menu);
     display: block;
     transition: 0.3s;
   }
   
   .sidenav a:hover {
-    color: #ff4779;
+    color: var(--icons);
   }
   
   .sidenav .closebtn {
@@ -48,15 +58,19 @@ body {
     background-color: #eaebe7;
 
   }
+  main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
   .add {
     width: 50px;
     height:50px;
     border:none;
     font-size: 30px;
     border-radius: 100%;
-    color: #fff;
+    color: #000;
     text-align: center;
-    background-color: #ff4779;
+    background-color: var(--icons);
     transition: width 0.3s, height 0.3s, transform 0.3s; 
     transition-timing-function: linear;  
 }
@@ -72,7 +86,7 @@ body {
   
 }
 i{
-  color:#ff4779;
+  color:var(--icons);
 }
   
   @media screen and (max-height: 450px) {
@@ -105,7 +119,7 @@ i{
     z-index: 3;
     top: 50%;
     left: 50%;
-    background: linear-gradient(90deg, #adedd5, #ffffb3);
+    background: linear-gradient(90deg, var(--sidenav), #ffffb3);
     display: inline-grid;
     grid-template: 30px 30px 300px/100px 350px 30px;
     user-select: none;
@@ -120,9 +134,14 @@ i{
     grid-row-end:2;
     grid-column-start:3;
     grid-column-end:4;
+    font-size: 2rem;
   }
   .closeform:hover{
     font-weight: bolder;
+  }
+  .submit{
+    width: 100px;
+   margin-left: 100px;
   }
   h2{
     background-color: #ffffb3;
@@ -131,7 +150,7 @@ i{
   }
   #select{
     padding-left:20px;
-    background-color: #adedd5;
+    background-color: var(--sidenav);
     grid-column-start: 1;
     grid-column-end:2;
     grid-row:2/4;
@@ -142,10 +161,10 @@ i{
   }
   #select a{
     text-decoration: none;
-    color:#818181;
+    color:var(--menu);
   }
   #select a:hover{
-    color: #000;
+    color: var(--icons);
   }
   form{
     display:flex;
