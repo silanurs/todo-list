@@ -10,11 +10,14 @@
 
 body {
     font-family: "Lato", sans-serif;
+    color: var(--sidenav);
+    background-color: var(--menu);
   }
   * {
     margin:0;
     padding:0;
     box-sizing: border-box;
+    cursor: alias;
   }
   .sidenav {
     height: 100%;
@@ -52,15 +55,28 @@ body {
   
   #main {
     transition: margin-left .5s;
+    height: 15vh;
     padding: 16px;
     display:flex;
+    justify-content:flex-start;
     column-gap: 3rem;
+    align-items: center;
     background-color: #eaebe7;
+    color: var(--sidenav)
 
   }
   main {
     transition: margin-left .5s;
+    font-size: 1.3rem;
+    width: 600px;
+    margin-left: 30vw;
+    margin-top: 10vh;
     padding: 16px;
+    display:flex;
+    flex-direction: column;
+    gap: 30px;
+    background: linear-gradient(to top right, var(--sidenav), #ffffb3);
+    border-radius: 10px;
   }
   .add {
     width: 50px;
@@ -93,8 +109,16 @@ i{
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   }
+  .date{
+    margin-left: auto;
+  }
+  input {
+    background-color:#eaebe7;
+    border: 1px solid var(--sidenav);
+  }
   textarea{
     resize:none;
+    background-color: #eaebe7;
   }
   .low{
     color: green;
@@ -189,4 +213,16 @@ i{
 }
 .overlay.active {
   display: block;
+}
+.task {
+  padding-right: 5px;
+  display:flex;
+  justify-content: flex-start;
+  column-gap: 30px;
+  background-color: #eaebe7;
+}
+.task-container {
+  display:flex;
+  flex-direction: column;
+  row-gap: 20px;
 }

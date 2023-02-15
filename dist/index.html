@@ -7,7 +7,7 @@
     <title>// Todo</title>
     <script src="https://kit.fontawesome.com/578dda704c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
+   
 </head>
 <body>
     <div id="mySidenav" class="sidenav">
@@ -24,7 +24,7 @@
         <h1>// To-Do</h1>
       </div>
       <main>
-
+         <div class="task-container"></div>
       </main>
       <div id="container">
         <span class="closeform">	&#xD7;</span>
@@ -37,24 +37,25 @@
 
       <form>
         <label for="title"></label>
-        <input type="text" placeholder="Title: Learn react..." id="title" required><br>
+        <input type="text" placeholder="Title: Learn react..." class="rinput" id="title" required><br>
         <label for="details"></label>
         <textarea name="details" id="details" placeholder="Details: Watch tutorials, read documentation etc..." rows="10" cols="40"></textarea><br>
         <label for="date">Due Date:</label>
-        <input type="date" id="date"><br>
+        <input type="date" id="date" class="rinput" required><br>
         <div id="priority">
         <span>Priority:  </span>
         <label for="low" class="low">Low</label>
         <input type="radio" id="low" name="priority" class="priority" required>
         <label for="medium" class="medium">Medium</label>
-        <input type="radio" id="medium" name="priority" class="priority" required>
+        <input type="radio" id="medium" name="priority" class="priority" >
         <label for="high" class="high">High</label>
-        <input type="radio" id="high" name="priority" class="priority" required>
+        <input type="radio" id="high" name="priority" class="priority" >
         </div>
-        <button type="button" class="submit">Submit</button>
+        <button type="submit" class="submit">Submit</button>
 
       </form>
       </div>
       <div class="overlay" id="overlay"></div>
+      <script src="main.js"></script>
 </body>
 </html>
