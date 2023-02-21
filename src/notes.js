@@ -1,0 +1,4 @@
+function addNote(){
+
+}
+export {addNote}

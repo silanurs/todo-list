@@ -52,7 +52,29 @@ body {
     font-size: 36px;
     margin-left: 50px;
   }
-  
+  .projects {
+    font-size: 1.2rem;
+  }
+  .projects > p {
+    color:var(--menu);
+    padding-left:2rem;
+    font-size:1.2rem;
+  }
+  .projects > p:hover{
+    color:var(--icons)
+  }
+  .remove{
+    color: var(--text);
+  }
+  .remove:hover{
+    color:var(--icons);
+  }
+  .removeProject {
+    color: var(--menu)
+  }
+  .removeProject:hover{
+    color:var(--icons)
+  }
   #main {
     transition: margin-left .5s;
     height: 15vh;
@@ -62,21 +84,22 @@ body {
     column-gap: 3rem;
     align-items: center;
     background-color: #eaebe7;
-    color: var(--sidenav)
+    color: var(--sidenav);
+    position:relative;
+    right:0vw;
 
   }
   main {
     transition: margin-left .5s;
     font-size: 1.3rem;
-    width: 600px;
-    margin-left: 30vw;
-    margin-top: 10vh;
-    padding: 16px;
+    display:grid;
+    justify-content: center;
+    align-content:center;
+
+  }
+  .projectname {
     display:flex;
-    flex-direction: column;
-    gap: 30px;
-    background: linear-gradient(to top right, var(--sidenav), #ffffb3);
-    border-radius: 10px;
+    column-gap: 40px;
   }
   .add {
     width: 50px;
@@ -96,10 +119,10 @@ body {
     transform:rotate(180deg);
 }
 .addbtn {
-    margin-top: 15vh;
+    position: relative;
+    top: 10vh;
     display:grid;
-    justify-content: center;
-  
+    justify-content:center;
 }
 i{
   color:var(--icons);
@@ -216,13 +239,22 @@ i{
 }
 .task {
   padding-right: 5px;
+  width: 600px;
+  padding:5px;
   display:flex;
   justify-content: flex-start;
   column-gap: 30px;
   background-color: #eaebe7;
 }
 .task-container {
+  margin-top: 3vh;
+  padding: 20px;
   display:flex;
   flex-direction: column;
+  align-items: center;
   row-gap: 20px;
+  background: linear-gradient(to top right, var(--sidenav), #ffffb3);
+  border-radius: 10px;
+  width: 60vw;
+  height: 80vh;
 }

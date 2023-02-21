@@ -12,9 +12,12 @@
 <body>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn">&times;</a>
-        <a href="#"><i class="fa-solid fa-house"></i> Inbox</a>
-        <a href="#"><i class="fa-solid fa-list-check"></i> Projects</a>
-        <a href="#"><i class="fa-solid fa-note-sticky"></i> Notes</a>
+        <a href="#" class="home"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="#" class="notes"><i class="fa-solid fa-note-sticky"></i> Notes</a>
+        <div class = "projects">
+          <a href="#" ><i class="fa-solid fa-list-check"></i> Projects</a>
+        </div>
+     
         <div class="addbtn">
             <button type="button" class="add">+</button>
         </div>
@@ -30,9 +33,9 @@
         <span class="closeform">	&#xD7;</span>
         <h2>Create a new...</h2> 
         <div id="select">
-        <a href="#">Todo</a>
-        <a href="#">Project</a>
-        <a href="#">Note</a>
+        <a href="#" class="todoForm">Todo</a>
+        <a href="#" class="projectForm">Project</a>
+        <a href="#" class = "noteForm">Note</a>
         </div>
 
       <form>
@@ -42,15 +45,6 @@
         <textarea name="details" id="details" placeholder="Details: Watch tutorials, read documentation etc..." rows="10" cols="40"></textarea><br>
         <label for="date">Due Date:</label>
         <input type="date" id="date" class="rinput" required><br>
-        <div id="priority">
-        <span>Priority:  </span>
-        <label for="low" class="low">Low</label>
-        <input type="radio" id="low" name="priority" class="priority" required>
-        <label for="medium" class="medium">Medium</label>
-        <input type="radio" id="medium" name="priority" class="priority" >
-        <label for="high" class="high">High</label>
-        <input type="radio" id="high" name="priority" class="priority" >
-        </div>
         <button type="submit" class="submit">Submit</button>
 
       </form>
