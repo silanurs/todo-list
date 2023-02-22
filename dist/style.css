@@ -40,8 +40,11 @@ body {
     display: block;
     transition: 0.3s;
   }
-  
-  .sidenav a:hover {
+  .sidenav > .home {
+    color:var(--icons)
+  }
+
+  .sidenav > a:hover {
     color: var(--icons);
   }
   
@@ -239,7 +242,7 @@ i{
 }
 .task {
   padding-right: 5px;
-  width: 600px;
+  width: 40vw;
   padding:5px;
   display:flex;
   justify-content: flex-start;
@@ -256,5 +259,6 @@ i{
   background: linear-gradient(to top right, var(--sidenav), #ffffb3);
   border-radius: 10px;
   width: 60vw;
-  height: 80vh;
+ 
 }
+

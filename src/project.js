@@ -12,6 +12,7 @@ class Project {
 let projectInp = [];
 function displayProjectForm(){
     clearForm()
+    document.querySelector('.noteForm').style.color = "#9ab8ba"
     document.querySelector('.projectForm').style.color = "#def9fa"
     document.querySelector('.projectForm').removeEventListener('click', displayProjectForm)
     const form = document.querySelector('form');
@@ -31,7 +32,6 @@ function displayProjectForm(){
 
 
 function addProject() {
-    const main = document.querySelector('main');
     const input = document.getElementById('caption');
     let newProject = new Project(input.value);
     projectInp.push(newProject);

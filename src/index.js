@@ -1,6 +1,6 @@
-import {form, overlay, addBtn, closebtn, submit, addTask, createForm, closeForm, render, createCard, restore} from "./tasks.js"
+import {form, overlay, addBtn, closebtn, submit, addTask, createForm, closeForm, render, createCard, restore, tasks, setData, showTask} from "./tasks.js"
 import {displayProjectForm, addProject, restoreProjects} from "./project.js"
-import {addNote} from "./notes.js"
+import {addNote, displayNoteForm, restoreNotes, showNotes} from "./notes.js"
 
 
 function openNav() {
@@ -23,7 +23,7 @@ function displayTasks(){
     document.querySelector('.home').style.color= "#def9fa"
     document.querySelector('.notes').style.color= "#9ab8ba"
     document.querySelector('.projects').style.color= "#9ab8ba"
-    addTask()
+    showTask()
     document.querySelector('.home').removeEventListener('click', displayTasks)
     document.querySelector('.notes').addEventListener('click', displayNotes);
     document.querySelector('.projects').addEventListener('click', displayProjects)
@@ -45,10 +45,12 @@ function displayNotes(){
     document.querySelector('.home').style.color= "#9ab8ba"
     document.querySelector('.projects').style.color= "#9ab8ba"
     document.querySelector('.notes').style.color= "#def9fa"
-    addNote();
+    showNotes()
     document.querySelector('.notes').removeEventListener('click', displayNotes)
     document.querySelector('.projects').addEventListener('click', displayProjects)
    document.querySelector('.home').addEventListener('click', displayTasks)
+   restoreNotes()
+
 
 }
 
@@ -63,7 +65,7 @@ function displayTodoForm(){
 }
 
 
-
+document.querySelector('.noteForm').addEventListener('click', displayNoteForm);
 document.querySelector('.projectForm').addEventListener('click', displayProjectForm)
 document.querySelector('.todoForm').addEventListener('click', displayTodoForm)
 document.querySelector('.notes').addEventListener('click', displayNotes);
@@ -75,4 +77,4 @@ addBtn.addEventListener('click', createForm);
 closebtn.addEventListener('click', closeForm);
 submit.addEventListener('click', addTask)
 
-export {closeNav, clearForm}
+export {closeNav, clearForm, clearContent, displayNotes, displayProjects, displayTasks}
