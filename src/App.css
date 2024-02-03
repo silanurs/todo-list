@@ -34,7 +34,7 @@ form {
     place-self:center;
     display:flex;
     justify-content:flex-start;
-    align-items: center;
+    
     font-size:2rem;
 }
   input[type=checkbox]{
@@ -52,11 +52,10 @@ form {
     width: 35vw;
     outline:none;
   }
-  #colors{
-    margin-left:auto;
-  }
+
   .delete{
     font-size:1.5rem;
+    margin-left:auto;
   }
   .delete:hover{
     font-weight: 900;
