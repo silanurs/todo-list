@@ -10,26 +10,21 @@ const Todos = () =>{
         const name = e.target.name;
         const value = e.target.value;
         setInfo(inputs => ({...inputs, [name]:value}));
-        setInfo(inputs=>({...inputs, date:dateFormat(date,"paddedShortDate")}))
+        console.log(info.date)
         
     }
     const handleSubmit=(e)=>{
         e.preventDefault()
+        //setInfo(inputs=>({...inputs, date:dateFormat(new Date(date.split("-").join()),"dd/mm/yyyy")}))
+        console.log(info.date)
         setTodos([...todos, info])
-        setInfo(inputs=>({...inputs, description:"", date:""}))
+        //setInfo(inputs=>({...inputs, description:"", date:""}))
     }
  
     return (
         <main>   
             <Menu/> 
-            <div id="todo-container">
-            <form> 
-                <input type="text" id="description" placeholder="What needs to be done?" required name="description" value={info.description} onChange={handleChange}></input>
-                <label htmlFor="description"></label>  
-                <input type="date" id="date"required name="date" value={info.date} onChange={handleChange} data-date="" data-date-format="DD MMMM YYYY"></input>
-            </form>
-            <button type="submit" onClick={handleSubmit}>Submit</button>
-            <hr></hr>
+            <div id="todo-container">    
             <List todos={todos}/>
             </div>          
           

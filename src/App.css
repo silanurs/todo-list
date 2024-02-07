@@ -25,16 +25,14 @@ header {
     display:grid;
     width:40vw;
     margin-left:30vw;
+    margin-top:20vh;
 }
 form {
-    float:top;
+    
     width: 50vw;
     background-color:#DFE0DF;
     margin-top:2vh;
-    place-self:center;
-    display:flex;
-    justify-content:flex-start;
-    
+    place-self:center;   
     font-size:2rem;
 }
   input[type=checkbox]{
@@ -85,3 +83,28 @@ form {
     text-decoration: none;
     color:#D2B48C;
   }
+  .add {
+    width: 50px;
+    height:50px;
+    border:none;
+    position:fixed;
+    bottom: 5vh;
+    font-size: 30px;
+    border-radius: 100%;
+    color: #f1faf1;
+    text-align: center;
+    background:#582B39;
+    color:var(--background);
+    transition: width 0.3s, height 0.3s, transform 0.3s; 
+    transition-timing-function: linear;  
+}
+.add:hover{
+    width:60px;
+    height:60px;
+    transform:rotate(180deg);
+}
+
+.button {
+  display:flex;
+  justify-content: center;
+}

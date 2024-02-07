@@ -1,0 +1,27 @@
+const Forms = ()=>{
+    
+}
+
+
+
+const TodoForm = ()=>{
+    <form> 
+      <input type="text" id="description" placeholder="What needs to be done?" name="description" required></input>
+      <label htmlFor="description"></label>  
+      <input type="date" id="date" name="date"  required></input>
+      <div>Priority:</div>
+      <label for="green">Low</label>
+      <input type="radio" id="green" name="priority" value="Low"></input>
+      <label for="yellow">Medium</label>
+      <input type="radio" id="yellow" name="priority" value="Medium"></input>
+      <label for="red">High</label>
+      <input type="radio" id="red" name="priority"></input>
+      <button type="submit" onClick={handleSubmit}>ADD TO DO</button>
+    </form>
+}
+const NoteForm = ()=>{
+    <form>
+        <input type="text" id="note"></input>
+        <button type="button">ADD NOTE</button>
+    </form>
+}
