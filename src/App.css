@@ -25,15 +25,43 @@ header {
     display:grid;
     width:40vw;
     margin-left:30vw;
-    margin-top:20vh;
+  
 }
-form {
-    
-    width: 50vw;
-    background-color:#DFE0DF;
-    margin-top:2vh;
-    place-self:center;   
-    font-size:2rem;
+.modal-container {
+    width: 100vw;
+    height:100vh;
+    background-color:rgba(0, 0, 0, 0.7);
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.todo-form, .note-form{
+  background-color:#DFE0DF;
+  margin-top:2vh;  
+  font-size:1.3rem;
+  height:30vh;
+  width:40vw;
+}
+
+.form-header, .note-form-header{
+  display:flex;
+  justify-content: flex-end;
+}
+.form-header:hover{
+  font-weight:bolder;
+}
+.form-footer, .note-form-footer{
+  display:flex;
+  justify-content:center;
+}
+textarea{
+  width:250px;
+  height:10vh;
 }
   input[type=checkbox]{
     transform:scale(2);
@@ -46,9 +74,9 @@ form {
   }
   #description{
     margin-left:20px;
-    border:none;
     width: 35vw;
-    outline:none;
+   
+    border:1px solid grey;  
   }
 
   .delete{
