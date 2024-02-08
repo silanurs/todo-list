@@ -52,7 +52,7 @@ header {
   display:flex;
   justify-content: flex-end;
 }
-.form-header:hover{
+.form-header:hover, .note-form-header:hover{
   font-weight:bolder;
 }
 .form-footer, .note-form-footer{
