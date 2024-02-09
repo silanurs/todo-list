@@ -1,6 +1,7 @@
 import { useState } from "react"
+import PropTypes from "prop-types"
 
-const Forms = ({closeModalProp, handleChange, handleSubmit})=>{
+const Forms = ({closeModalProp, handleChange, handleSubmit, handleDate})=>{
     const [isActive, setIsActive] = useState(true);
     return (
         <div className="modal-container">
@@ -8,16 +9,21 @@ const Forms = ({closeModalProp, handleChange, handleSubmit})=>{
                 <h2 onClick={()=>setIsActive(true)}>To-do</h2>
                 <h2 onClick={()=>setIsActive(false)}>Note</h2>
             </section>
-            {isActive ? (<TodoForm closeModal={closeModalProp} handleChange={handleChange} handleSubmit={handleSubmit}/>) : (<NoteForm closeModal={closeModalProp}/>) }
+            {isActive ? (<TodoForm closeModal={closeModalProp} handleChange={handleChange} handleSubmit={handleSubmit} handleDate={handleDate}/>) : (<NoteForm closeModal={closeModalProp}/>) }
             
         </div>
     )
  
 }
+Forms.propTypes={
+    closeModalProp:PropTypes.func,
+    handleChange:PropTypes.func,
+    handleSubmit:PropTypes.func,
+    handleDate:PropTypes.func
+}
 
 
-
-const TodoForm = ({closeModal, handleChange, handleSubmit})=>{
+const TodoForm = ({closeModal, handleChange, handleSubmit, handleDate})=>{
 return(
 <div className="todo-form">
 <div className="form-header" onClick={closeModal}>&#215;</div>
@@ -25,7 +31,7 @@ return(
        <form> 
          <input type="text" id="description" placeholder=" What needs to be done?" name="description" required onChange={handleChange}></input>
          <label htmlFor="description"></label>  
-         <input type="date" id="date" name="date"  required onChange={handleChange}></input>
+         <input type="date" id="date" name="date"  required onChange={handleDate}></input>
          <div>Priority:</div>
          <label htmlFor="green">Low</label>
          <input type="radio" id="green" name="priority" value="Low" onChange={handleChange}></input>
@@ -39,6 +45,12 @@ return(
 </div>
 
 )
+}
+TodoForm.propTypes={
+    closeModal:PropTypes.func,
+    handleChange:PropTypes.func,
+    handleSubmit:PropTypes.func,
+    handleDate:PropTypes.func
 }
 const NoteForm = ({closeModal})=>{
     return (
@@ -56,5 +68,8 @@ const NoteForm = ({closeModal})=>{
            </div>
         </div>
     )
+}
+NoteForm.propTypes = {
+    closeModal:PropTypes.func
 }
 export default Forms

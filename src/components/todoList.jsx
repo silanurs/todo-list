@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import PropTypes from "prop-types"
 const List = ({todos}) => {
     const [value, setValue]=useState(false);
     function handleCheck(){
@@ -21,5 +21,8 @@ const List = ({todos}) => {
 
       </article>
   )
+}
+List.propTypes={
+    todos:PropTypes.array
 }
 export default List

@@ -101,11 +101,15 @@ textarea{
   }
   nav{
     float:left;
-    display:grid;
-    width:20vw;
+    display:flex;
+    flex-direction:column;
+    row-gap:10vh;
+    align-items:center;
+    width:17vw;
+    font-size:1.8rem;
     background-color: #582B39;
     color: #f1faf1;
-    height:100vh;
+    height:91vh;
   }
   a {
     text-decoration: none;
