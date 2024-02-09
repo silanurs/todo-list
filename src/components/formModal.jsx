@@ -32,9 +32,9 @@ return(
          <label htmlFor="yellow">Medium</label>
          <input type="radio" id="yellow" name="priority" value="Medium" onChange={handleChange}></input>
          <label htmlFor="red">High</label>
-         <input type="radio" id="red" name="priority" onChange={handleChange}></input>
+         <input type="radio" id="red" name="priority" onChange={handleChange} value="High"></input>
     </form>
-    <div className="form-footer"><button type="submit" onClick={closeModal} onSubmit={handleSubmit}>ADD TO DO</button></div>
+    <div className="form-footer"><button type="submit" onClick={handleSubmit} >ADD TO DO</button></div>
     </div>
 </div>
 
