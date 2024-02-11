@@ -1,5 +1,5 @@
 import List from "./todoList"
-import Menu from "./menu"
+
 import PropTypes from "prop-types"
 
 
@@ -8,7 +8,7 @@ const Todos = ({todos, setModalOpen}) =>{
  
     return (
         <main>   
-            <Menu/> 
+            
             <div id="todo-container">    
             <List todos={todos}/>
             </div>          

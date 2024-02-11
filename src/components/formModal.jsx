@@ -1,7 +1,7 @@
 import { useState } from "react"
 import PropTypes from "prop-types"
 
-const Forms = ({closeModalProp, handleChange, handleSubmit, handleDate})=>{
+const Forms = ({closeModalProp, handleChange, handleSubmit, handleDate, addNote, submitNote})=>{
     const [isActive, setIsActive] = useState(true);
     return (
         <div className="modal-container">
@@ -9,7 +9,8 @@ const Forms = ({closeModalProp, handleChange, handleSubmit, handleDate})=>{
                 <h2 onClick={()=>setIsActive(true)}>To-do</h2>
                 <h2 onClick={()=>setIsActive(false)}>Note</h2>
             </section>
-            {isActive ? (<TodoForm closeModal={closeModalProp} handleChange={handleChange} handleSubmit={handleSubmit} handleDate={handleDate}/>) : (<NoteForm closeModal={closeModalProp}/>) }
+            {isActive ? (<TodoForm closeModal={closeModalProp} handleChange={handleChange} handleSubmit={handleSubmit} handleDate={handleDate}/>) : 
+            (<NoteForm closeModal={closeModalProp} addNote={addNote} submitNote={submitNote}/>) }
             
         </div>
     )
@@ -19,7 +20,9 @@ Forms.propTypes={
     closeModalProp:PropTypes.func,
     handleChange:PropTypes.func,
     handleSubmit:PropTypes.func,
-    handleDate:PropTypes.func
+    handleDate:PropTypes.func, 
+    addNote:PropTypes.func,
+    submitNote:PropTypes.func
 }
 
 
@@ -52,7 +55,7 @@ TodoForm.propTypes={
     handleSubmit:PropTypes.func,
     handleDate:PropTypes.func
 }
-const NoteForm = ({closeModal})=>{
+const NoteForm = ({closeModal, addNote, submitNote})=>{
     return (
         <div className="note-form">
            <div className="note-form-header" onClick={closeModal}>
@@ -60,16 +63,18 @@ const NoteForm = ({closeModal})=>{
            </div>
            <div className="note-form-main">
               <form>
-                 <textarea name="note" id="note"></textarea>    
+                 <textarea name="note" id="note" onChange={addNote}></textarea>    
               </form>
            </div>
            <div className="note-form-footer">
-              <button type="button" onClick={closeModal}>ADD NOTE</button>
+              <button type="button" onClick={submitNote}>ADD NOTE</button>
            </div>
         </div>
     )
 }
 NoteForm.propTypes = {
-    closeModal:PropTypes.func
+    closeModal:PropTypes.func,
+    addNote:PropTypes.func,
+    submitNote:PropTypes.func
 }
 export default Forms
