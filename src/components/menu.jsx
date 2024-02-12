@@ -14,7 +14,7 @@ const Menu = ({todos, setModalOpen,notes}) => {
         <Routes>
             <Route path="/" element={<Todos todos={todos} setModalOpen={setModalOpen}></Todos>}></Route>
             <Route path="/Today"></Route>
-            <Route path="/Notes" element={<Notes notes={notes}></Notes>}></Route>
+            <Route path="/Notes" element={<Notes notes={notes} setModalOpen={setModalOpen}></Notes>}></Route>
         </Routes>
         </>
 
