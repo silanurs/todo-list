@@ -13,7 +13,8 @@ import './App.css'
   const [todos, setTodos] = useState([{id:1, description:"learn contextAPI", date:"12-12-2024", priority:"Low"}]);
   const [info, setInfo] = useState({ });
   const [notes, setNotes] = useState([])
-  const [note, setNote]=useState("")
+  const [note, setNote]=useState({})
+  const  [noteId, setNoteId] = useState(0);
   
 
   const handleChange = (e)=>{
@@ -29,7 +30,6 @@ import './App.css'
     const name=e.target.name;
     const value = e.target.value;
     setInfo(inputs=>({...inputs, [name]: dateFormat(value, "mediumDate")}))
-    console.log(value)
   }
 
   const closeModal = ()=>{
@@ -47,18 +47,28 @@ import './App.css'
     }
 
 }
+
 const addNote = (e)=>{
   const value = e.target.value;
-  setNote(value);
+  const name=e.target.name;
+  setNote(notes=>({...notes, [name]:value}));
+  
 }
 const submitNote = ()=>{
-setNotes([...notes, note]);
+  if(note.note==""){
+    alert("textarea shouldn't be empty!")
+  }else{
+    setNoteId(y=>y+1);
+    setNote(notes=>({...notes, id:noteId}))
+    setNotes([...notes, note]);
+  }
+
 closeModal();
 }
   return (
     <div>
       <Header/>
-      <Menu todos={todos} setModalOpen={setModalOpen}/>
+      <Menu todos={todos} setModalOpen={setModalOpen} notes={notes}/>
       <div className="flex">
       {modalOpen && (<Forms closeModalProp={closeModal} handleChange={handleChange} handleSubmit={handleSubmit} handleId={handleId}
        handleDate={handleDate} addNote={addNote} submitNote={submitNote}/>)}
