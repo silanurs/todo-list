@@ -10,7 +10,7 @@ import './App.css'
  const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [id, setId]= useState(2)
-  const [todos, setTodos] = useState([{id:1, description:"learn contextAPI", date:"12-12-2024", priority:"Low"}]);
+  const [todos, setTodos] = useState([{id:1, description:"learn contextAPI", date:"Dec 12, 2024", priority:"Low"}]);
   const [info, setInfo] = useState({ });
   const [notes, setNotes] = useState([])
   const [note, setNote]=useState({})

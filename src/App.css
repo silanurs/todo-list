@@ -1,4 +1,5 @@
 
+
 * {
     margin:0;
     padding:0;
@@ -21,7 +22,7 @@ header {
   font-family: "Sofia", sans-serif;
 }
 
-#todo-container{
+.todo-container{
     display:grid;
     width:40vw;
     margin-left:30vw;
@@ -92,7 +93,7 @@ textarea{
     overflow-x:hidden;
     overflow-y:auto;
   }
-  #list {
+  .list {
     display:flex;
     justify-content:flex-start;
     gap:2vw;

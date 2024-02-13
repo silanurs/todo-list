@@ -1,5 +1,4 @@
 import List from "./todoList"
-
 import PropTypes from "prop-types"
 
 
@@ -9,7 +8,7 @@ const Todos = ({todos, setModalOpen, removeTodo}) =>{
     return (
         <main>   
             
-            <div id="todo-container">    
+            <div className="todo-container">    
             <List todos={todos} removeTodo={removeTodo}/>
             </div>          
             <div className="button"> <button type="button" className="add" onClick={()=>setModalOpen(true)}>+</button></div>
