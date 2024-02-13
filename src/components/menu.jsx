@@ -2,7 +2,7 @@ import {Routes, Route, Link} from 'react-router-dom'
 import Todos from './todos';
 import Notes from './notes';
 import PropTypes from 'prop-types'
-const Menu = ({todos, setModalOpen,notes}) => {
+const Menu = ({todos, setModalOpen,notes, removeTodo, removeNote}) => {
     return (
         <>
         <nav>
@@ -12,9 +12,9 @@ const Menu = ({todos, setModalOpen,notes}) => {
             <Link to="/Notes">Notes</Link>
         </nav>
         <Routes>
-            <Route path="/" element={<Todos todos={todos} setModalOpen={setModalOpen}></Todos>}></Route>
+            <Route path="/" element={<Todos todos={todos} setModalOpen={setModalOpen} removeTodo={removeTodo}></Todos>}></Route>
             <Route path="/Today"></Route>
-            <Route path="/Notes" element={<Notes notes={notes} setModalOpen={setModalOpen}></Notes>}></Route>
+            <Route path="/Notes" element={<Notes notes={notes} setModalOpen={setModalOpen} removeNote={removeNote}></Notes>}></Route>
         </Routes>
         </>
 
@@ -23,6 +23,8 @@ const Menu = ({todos, setModalOpen,notes}) => {
 Menu.propTypes={
     todos:PropTypes.array,
     setModalOpen:PropTypes.func,
-    notes:PropTypes.array
+    notes:PropTypes.array,
+    removeTodo:PropTypes.func,
+    removeNote:PropTypes.func
 }
 export default Menu;

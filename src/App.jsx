@@ -47,6 +47,11 @@ import './App.css'
     }
 
 }
+const removeTodo = (id)=>{
+setTodos(current => current.filter(todo=>{
+  return todo.id !== id;
+}))
+}
 
 const addNote = (e)=>{
   const value = e.target.value;
@@ -64,11 +69,16 @@ const submitNote = ()=>{
   }
 
 closeModal();
+} 
+const removeNote=(id)=>{
+setNotes(current=>current.filter(note=>{
+  return note.id !== id
+}))
 }
   return (
     <div>
       <Header/>
-      <Menu todos={todos} setModalOpen={setModalOpen} notes={notes}/>
+      <Menu todos={todos} setModalOpen={setModalOpen} notes={notes} removeTodo={removeTodo} removeNote={removeNote}/>
       <div className="flex">
       {modalOpen && (<Forms closeModalProp={closeModal} handleChange={handleChange} handleSubmit={handleSubmit} handleId={handleId}
        handleDate={handleDate} addNote={addNote} submitNote={submitNote}/>)}

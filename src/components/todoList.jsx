@@ -1,6 +1,6 @@
 import { useState } from "react"
 import PropTypes from "prop-types"
-const List = ({todos}) => {
+const List = ({todos, removeTodo}) => {
     const [value, setValue]=useState(false);
     function handleCheck(){
         setValue(!value)
@@ -13,7 +13,7 @@ const List = ({todos}) => {
               <input type="checkbox" className="checkbox" onChange={handleCheck} value={value}/>      
               <div> {value ? <del>{todo.description}</del> : todo.description}</div>
               <div>{value ? <del>{todo.date}</del> : todo.date}</div>
-              <div className="delete">&#215;</div>
+              <div className="delete" onClick={()=>removeTodo(todo.id)}>&#215;</div>
               
               </div>
               
@@ -23,6 +23,7 @@ const List = ({todos}) => {
   )
 }
 List.propTypes={
-    todos:PropTypes.array
+    todos:PropTypes.array,
+    removeTodo:PropTypes.func
 }
 export default List

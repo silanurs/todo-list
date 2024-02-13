@@ -3,14 +3,14 @@ import List from "./todoList"
 import PropTypes from "prop-types"
 
 
-const Todos = ({todos, setModalOpen}) =>{
+const Todos = ({todos, setModalOpen, removeTodo}) =>{
 
  
     return (
         <main>   
             
             <div id="todo-container">    
-            <List todos={todos}/>
+            <List todos={todos} removeTodo={removeTodo}/>
             </div>          
             <div className="button"> <button type="button" className="add" onClick={()=>setModalOpen(true)}>+</button></div>
         </main>
@@ -19,6 +19,7 @@ const Todos = ({todos, setModalOpen}) =>{
 }
 Todos.propTypes = {
     todos:PropTypes.array,
-    setModalOpen:PropTypes.func
+    setModalOpen:PropTypes.func,
+    removeTodo:PropTypes.func
 }
 export default Todos
