@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Notes=({notes, setModalOpen, removeNote})=>{
 return (
-    <article>
+    <main>
         {notes.map((note)=>{
             return(
                <div className="note-container" key={note.id}>
@@ -13,7 +13,7 @@ return (
             )
         })}
          <div className="button"> <button type="button" className="add" onClick={()=>setModalOpen(true)}>+</button></div>
-    </article>
+    </main>
 )
 }
 

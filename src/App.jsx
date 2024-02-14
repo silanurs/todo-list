@@ -1,6 +1,6 @@
 import Menu from './components/menu';
 import Header from './components/header';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Forms from './components/formModal';
 import dateFormat from "dateformat";
 
@@ -12,7 +12,7 @@ import './App.css'
   const [id, setId]= useState(2)
   const [todos, setTodos] = useState([{id:1, description:"learn contextAPI", date:"Dec 12, 2024", priority:"Low"}]);
   const [info, setInfo] = useState({ });
-  const [notes, setNotes] = useState([])
+  const [notes, setNotes] = useState([{note:"example note with lots of lines", id:0}])
   const [note, setNote]=useState({})
   const  [noteId, setNoteId] = useState(0);
   
@@ -21,11 +21,8 @@ import './App.css'
       const name = e.target.name;
       const value = e.target.value;
       setInfo(inputs => ({...inputs, [name]:value}));
-      handleId()
   }
-  const handleId = ()=>{
-    setInfo(inputs=>({...inputs, id:id}))
-  }
+
   const handleDate = (e)=>{
     const name=e.target.name;
     const value = e.target.value;
@@ -40,10 +37,10 @@ import './App.css'
     if(info.date =="" || info.description =="" || info.priority==""){
       alert("All inputs must have a value!")
     } else {
-      setId(x=>x+1)
-      setTodos([...todos, info])
+      setTodos(prevTodos => [...prevTodos, { ...info, id }]);
       closeModal()
-      setInfo({id:id, description:"", date:"", priority:""})
+      setInfo({id:id+1, description:"", date:"", priority:""})
+      setId(id+1)
     }
 
 }
@@ -63,27 +60,46 @@ const submitNote = ()=>{
   if(note.note==""){
     alert("textarea shouldn't be empty!")
   }else{
-    setNoteId(y=>y+1);
-    setNote(notes=>({...notes, id:noteId}))
-    setNotes([...notes, note]);
+    setNotes(prevNotes=>[...prevNotes, {...note, id:noteId}])
+    setNoteId(noteId+1);
+    closeModal();
+    console.log(notes)
   }
 
-closeModal();
 } 
 const removeNote=(id)=>{
 setNotes(current=>current.filter(note=>{
   return note.id !== id
 }))
 }
+useEffect(()=>{
+  const todos= JSON.parse(localStorage.getItem('todos'))
+  if(todos){
+    setTodos(todos)
+  }
+},[])
+useEffect(()=>{
+  localStorage.setItem('todos', JSON.stringify(todos))
+},[todos])
+
+useEffect(()=>{
+  const notes=JSON.parse(localStorage.getItem('notes'));
+  if(notes){
+    setNotes(notes)
+  }
+}, [])
+useEffect(()=>{
+  localStorage.setItem('notes', JSON.stringify(notes))
+}, [notes])
   return (
-    <div>
+    <>
       <Header/>
       <Menu todos={todos} setModalOpen={setModalOpen} notes={notes} removeTodo={removeTodo} removeNote={removeNote}/>
-      <div className="flex">
-      {modalOpen && (<Forms closeModalProp={closeModal} handleChange={handleChange} handleSubmit={handleSubmit} handleId={handleId}
+      
+      {modalOpen && (<Forms closeModalProp={closeModal} handleChange={handleChange} handleSubmit={handleSubmit}
        handleDate={handleDate} addNote={addNote} submitNote={submitNote}/>)}
-      </div>
-    </div>
+     
+    </>
   );
 };
 

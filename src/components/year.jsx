@@ -6,8 +6,8 @@ const Year = ({todos, removeTodo})=>{
     const isEqual = todoDates.map(todo=>({...todo, year:todo.date==arr}))
     const years = isEqual.filter(todo=>todo.year)
     return(
-        <div className="todo-container">
-            <article>
+        <main>
+            <div className="todo-container">
                 {years.map((year)=>{
                     return(
                         <div className="list" key={year.id}>
@@ -17,8 +17,8 @@ const Year = ({todos, removeTodo})=>{
                         </div>
                     )
                 })}
-            </article>
-        </div>
+            </div>
+        </main>
     )
 }
 export default Year

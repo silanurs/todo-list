@@ -7,8 +7,8 @@ const Today = ({todos, removeTodo})=>{
     const isEqual = todoDates.map(todo=>({...todo, today:todo.date.every((value,index)=> value===arr[index])}))
    const todays=isEqual.filter(todo=>todo.today)
    return(
-    <div className="todo-container">
-        <article>
+    <main>
+        <div className="todo-container">
             {todays.map((today)=>{
                 return(
                     <div className="list" key={today.id}>
@@ -18,8 +18,8 @@ const Today = ({todos, removeTodo})=>{
                     </div>
                 )
             })}
-        </article>
-    </div>
+        </div>
+    </main>
 
    )
     

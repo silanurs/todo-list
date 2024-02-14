@@ -14,7 +14,7 @@ const Menu = ({todos, setModalOpen,notes, removeTodo, removeNote}) => {
             <Link to="/Notes">Notes</Link>
         </nav>
         <Routes>
-            <Route path="/" element={<Todos todos={todos} setModalOpen={setModalOpen} removeTodo={removeTodo}></Todos>}></Route>
+            <Route path="/" exact element={<Todos todos={todos} setModalOpen={setModalOpen} removeTodo={removeTodo}></Todos>}></Route>
             <Route path="/Today" element={<Today todos={todos} removeTodo={removeTodo}></Today>}></Route>
             <Route path="/Year" element={<Year todos={todos} removeTodo={removeTodo}></Year>}></Route>
             <Route path="/Notes" element={<Notes notes={notes} setModalOpen={setModalOpen} removeNote={removeNote}></Notes>}></Route>

@@ -2,8 +2,9 @@ import List from "./todoList"
 import PropTypes from "prop-types"
 
 
-const Todos = ({todos, setModalOpen, removeTodo}) =>{
 
+const Todos = ({todos, setModalOpen, removeTodo, }) =>{
+   
  
     return (
         <main>   

@@ -5,7 +5,7 @@ const List = ({todos, removeTodo}) => {
   return (
       <article>
           {todos.map((todo) => {
-              return <div key={todo.id} className="list"> 
+              return <div key={todo.id} className={todo.priority}> 
               <div> {todo.description}</div>
               <div>{todo.date}</div>
               <div className="delete" onClick={()=>removeTodo(todo.id)}>&#215;</div>
