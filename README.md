@@ -1,8 +1,30 @@
-# React + Vite
+# Todo List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Demo : https://silanurs.github.io/todo-list/
 
-Currently, two official plugins are available:
+# Built with
+* React
+* React-Router
+* styled-components
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+* Save to-do items.
+
+* Three priority levels to assign a to-do item.
+
+* Pinterest style notes section. Dynamically add, remove or edit notes.
+
+* Fully responsive.
+
+* Data saved to local storage.
+
+
+
+## Installation
+```
+git clone https://github.com/silanurs/todo-list.git
+cd cv-creator
+npm install
+npm start
+```
