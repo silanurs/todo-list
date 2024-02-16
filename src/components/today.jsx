@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
-
+import StyledMain from "./styles/container"
+import StyledList from "./styles/listItem"
 const Today = ({todos, removeTodo})=>{
     const currentDay = new Date()
     const arr = currentDay.toString().split(" ").slice(1,4)
@@ -7,19 +8,21 @@ const Today = ({todos, removeTodo})=>{
     const isEqual = todoDates.map(todo=>({...todo, today:todo.date.every((value,index)=> value===arr[index])}))
    const todays=isEqual.filter(todo=>todo.today)
    return(
-    <main>
+    <StyledMain>
         <div className="todo-container">
             {todays.map((today)=>{
                 return(
-                    <div className="list" key={today.id}>
-                        <div>{today.description}</div>
-                        <div>{today.date.toString()}</div>
+                    <StyledList  key={today.id} className={today.priority==="Low" ? "Low" :
+                    today.priority==="Medium" ? "Medium" :
+                    today.priority==="High" ? "High" : null}>
+                        <div className="description">{today.description}</div>
+                        <div className="date">{today.date.toString()}</div>
                         <div className="delete" onClick={()=>removeTodo(today.id)}>&#215;</div>
-                    </div>
+                    </StyledList>
                 )
             })}
         </div>
-    </main>
+    </StyledMain>
 
    )
     

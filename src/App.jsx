@@ -3,18 +3,19 @@ import Header from './components/header';
 import { useState, useEffect } from 'react';
 import Forms from './components/formModal';
 import dateFormat from "dateformat";
-
-
-import './App.css'
+import GlobalStyles from './components/styles/globalStyles'
 
  const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [id, setId]= useState(2)
   const [todos, setTodos] = useState([{id:1, description:"learn contextAPI", date:"Dec 12, 2024", priority:"Low"}]);
   const [info, setInfo] = useState({ });
-  const [notes, setNotes] = useState([{note:"example note with lots of lines", id:0}])
+  const [notes, setNotes] = useState([{note:"example note with lots of lines", id:0}, {note:"\"The pessimist complains about the wind; the optimist expects it to change; the realist adjusts the sails.", id:5000},
+{note:
+  "\"You're not obligated to win. You're obligated to keep trying to do the best you can every day.", id:4000}, {note:"\"When one door of happiness closes, another opens; but often we look so long at the closed door that we do not see the one which has been opened for us." 
+  ,id:2500}])
   const [note, setNote]=useState({})
-  const  [noteId, setNoteId] = useState(0);
+  const  [noteId, setNoteId] = useState(3000);
   
 
   const handleChange = (e)=>{
@@ -34,13 +35,14 @@ import './App.css'
   }
   const handleSubmit=(e)=>{
     e.preventDefault()
-    if(info.date =="" || info.description =="" || info.priority==""){
+    if(info.date =="" || info.description =="" || info.priority=="" || info=={}){
       alert("All inputs must have a value!")
     } else {
       setTodos(prevTodos => [...prevTodos, { ...info, id }]);
       closeModal()
       setInfo({id:id+1, description:"", date:"", priority:""})
       setId(id+1)
+      console.log(todos)
     }
 
 }
@@ -93,9 +95,9 @@ useEffect(()=>{
 }, [notes])
   return (
     <>
+      <GlobalStyles></GlobalStyles>
       <Header/>
       <Menu todos={todos} setModalOpen={setModalOpen} notes={notes} removeTodo={removeTodo} removeNote={removeNote}/>
-      
       {modalOpen && (<Forms closeModalProp={closeModal} handleChange={handleChange} handleSubmit={handleSubmit}
        handleDate={handleDate} addNote={addNote} submitNote={submitNote}/>)}
      
