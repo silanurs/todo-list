@@ -9,13 +9,13 @@ const Menu = ({todos, setModalOpen,notes, removeTodo, removeNote}) => {
     return (
         <>
         <StyledNav>
-            <NavLink to="/" className="link">Home</NavLink>
+            <NavLink to="/todo-list/" className="link">Home</NavLink>
             <NavLink to="/Today" className="link">Today</NavLink>
             <NavLink to="/Year" className="link">This Year</NavLink>
             <NavLink to="/Notes" className="link">Notes</NavLink>
         </StyledNav>
         <Routes>
-            <Route path="/" exact element={<Todos todos={todos} setModalOpen={setModalOpen} removeTodo={removeTodo}></Todos>}></Route>
+            <Route path="/todo-list/" exact element={<Todos todos={todos} setModalOpen={setModalOpen} removeTodo={removeTodo}></Todos>}></Route>
             <Route path="/Today" element={<Today todos={todos} removeTodo={removeTodo}></Today>}></Route>
             <Route path="/Year" element={<Year todos={todos} removeTodo={removeTodo}></Year>}></Route>
             <Route path="/Notes" element={<Notes notes={notes} setModalOpen={setModalOpen} removeNote={removeNote}></Notes>}></Route>
