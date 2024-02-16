@@ -49,6 +49,7 @@ grid-template-columns:1fr 1fr;
 .delete{
     font-size:2rem;
     margin-left:auto;
+    cursor:pointer;
   }
   .delete:hover{
     font-weight: bolder;
