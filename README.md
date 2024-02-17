@@ -2,10 +2,10 @@
 
 Live Demo : https://silanurs.github.io/todo-list/
 
-# Built with
-* React
-* React-Router
-* styled-components
+Preview: 
+![screen-gif](./preview.gif)
+
+
 
 ## Features
 
@@ -18,6 +18,13 @@ Live Demo : https://silanurs.github.io/todo-list/
 * Fully responsive.
 
 * Data saved to local storage.
+
+
+
+# Built with
+* React
+* React-Router
+* styled-components
 
 
 
