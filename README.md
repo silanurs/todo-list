@@ -34,7 +34,6 @@ Preview:
 ## Installation
 ```
 git clone https://github.com/silanurs/todo-list.git
-cd cv-creator
-npm install
-npm start
+cd todo-list
+npm run dev
 ```
