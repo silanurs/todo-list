@@ -3,6 +3,9 @@
 Live Demo : https://silanurs.github.io/todo-list/
 
 Preview: 
+
+
+
 ![screen-gif](./preview.gif)
 
 
