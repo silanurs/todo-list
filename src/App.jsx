@@ -1,9 +1,27 @@
 import Menu from './components/menu';
 import Header from './components/header';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import Forms from './components/formModal';
 import dateFormat from "dateformat";
-import GlobalStyles from './components/styles/globalStyles'
+import GlobalStyles from './components/styles/globalStyles';
+import { Outlet } from 'react-router-dom';
+
+export const TodoContext = createContext({
+  todos:[],
+  notes:[],
+  openModal:()=>{},
+  removeTodo:()=>{},
+  removeNote:()=>{},
+})
+export const FormContext = createContext({
+  handleChange:()=>{},
+  handleDate:()=>{},
+  openModal:()=>{},
+  closeModal:()=>{},
+  submitNote:()=>{},
+  handleSubmit:()=>{},
+  addNote:()=>{}
+})
 
  const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -29,7 +47,10 @@ import GlobalStyles from './components/styles/globalStyles'
     const value = e.target.value;
     setInfo(inputs=>({...inputs, [name]: dateFormat(value, "mediumDate")}))
   }
-
+const openModal = ()=>{
+  setModalOpen(true)
+  console.log("modal open")
+}
   const closeModal = ()=>{
     setModalOpen(false);
   }
@@ -42,7 +63,6 @@ import GlobalStyles from './components/styles/globalStyles'
       closeModal()
       setInfo({id:id+1, description:"", date:"", priority:""})
       setId(id+1)
-      console.log(todos)
     }
 
 }
@@ -65,7 +85,6 @@ const submitNote = ()=>{
     setNotes(prevNotes=>[...prevNotes, {...note, id:noteId}])
     setNoteId(noteId+1);
     closeModal();
-    console.log(notes)
   }
 
 } 
@@ -97,10 +116,13 @@ useEffect(()=>{
     <>
       <GlobalStyles></GlobalStyles>
       <Header/>
-      <Menu todos={todos} setModalOpen={setModalOpen} notes={notes} removeTodo={removeTodo} removeNote={removeNote}/>
-      {modalOpen && (<Forms closeModalProp={closeModal} handleChange={handleChange} handleSubmit={handleSubmit}
-       handleDate={handleDate} addNote={addNote} submitNote={submitNote}/>)}
-     
+      <TodoContext.Provider value={{openModal, removeTodo, removeNote, todos, notes, }}>
+      <Menu/>
+      <Outlet></Outlet>
+      </TodoContext.Provider>
+      <FormContext.Provider value={{closeModal, handleChange, handleSubmit, handleDate, addNote, submitNote}}>
+      {modalOpen && (<Forms />)}
+      </FormContext.Provider>
     </>
   );
 };

@@ -1,7 +1,10 @@
 import PropTypes from "prop-types"
 import StyledMain from "./styles/container";
 import StyledList from "./styles/listItem";
-const Year = ({todos, removeTodo})=>{
+import { useContext } from "react";
+import { TodoContext } from "../App";
+const Year = ()=>{
+    const {todos, removeTodo} = useContext(TodoContext);
     const currentYear=new Date()
     const arr = currentYear.toString().split(" ").slice(3,4).toString();
     const todoDates= todos.map(todo=>({...todo, date:todo.date.slice(8)})); 

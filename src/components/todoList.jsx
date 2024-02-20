@@ -1,7 +1,8 @@
-import PropTypes from "prop-types"
 import StyledList from "./styles/listItem"
-const List = ({todos, removeTodo}) => {
-   
+import { useContext } from "react";
+import { TodoContext } from "../App";
+const List = () => {
+   const {todos, removeTodo} = useContext(TodoContext)
 
   return (
       <article>
@@ -20,8 +21,5 @@ const List = ({todos, removeTodo}) => {
       </article>
   )
 }
-List.propTypes={
-    todos:PropTypes.array,
-    removeTodo:PropTypes.func
-}
+
 export default List

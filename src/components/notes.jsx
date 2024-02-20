@@ -1,8 +1,10 @@
-import PropTypes from 'prop-types'
 import StyledMain from './styles/container'
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { useContext } from 'react';
+import { TodoContext } from '../App';
 
-const Notes=({notes, setModalOpen, removeNote})=>{
+const Notes=()=>{
+    const {notes, openModal, removeNote} = useContext(TodoContext)
 return (
     <StyledMain>
         <StyledNotes>
@@ -15,16 +17,11 @@ return (
             )
         })}
         </StyledNotes>
-         <div className="button"> <button type="button" className="add" onClick={()=>setModalOpen(true)}>+</button></div>
+         <div className="button"> <button type="button" className="add" onClick={openModal}>+</button></div>
     </StyledMain>
 )
 }
 
-Notes.propTypes={
-    notes:PropTypes.array,
-    setModalOpen:PropTypes.func,
-    removeNote:PropTypes.func
-}
 const StyledNotes = styled.div`
 display:grid;
 grid-template-rows: 1.5fr 1.5fr 1.5fr;

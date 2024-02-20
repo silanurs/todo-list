@@ -1,8 +1,9 @@
 import { useState } from "react"
-import PropTypes from "prop-types"
 import styled from "styled-components";
+import { useContext } from "react";
+import { FormContext } from "../App";
 
-const Forms = ({closeModalProp, handleChange, handleSubmit, handleDate, addNote, submitNote})=>{
+const Forms = ()=>{
     const [isActive, setIsActive] = useState(true);
     return (
         <StyledModal>
@@ -11,8 +12,8 @@ const Forms = ({closeModalProp, handleChange, handleSubmit, handleDate, addNote,
                 <h2 onClick={()=>setIsActive(true)}>To-do</h2>
                 <h2 onClick={()=>setIsActive(false)}>Note</h2>
             </section>
-            {isActive ? (<TodoForm closeModal={closeModalProp} handleChange={handleChange} handleSubmit={handleSubmit} handleDate={handleDate}/>) : 
-            (<NoteForm closeModal={closeModalProp} addNote={addNote} submitNote={submitNote}/>) }
+            {isActive ? (<TodoForm/>) : 
+            (<NoteForm/>) }
             
             </div>
 
@@ -20,14 +21,7 @@ const Forms = ({closeModalProp, handleChange, handleSubmit, handleDate, addNote,
     )
  
 }
-Forms.propTypes={
-    closeModalProp:PropTypes.func,
-    handleChange:PropTypes.func,
-    handleSubmit:PropTypes.func,
-    handleDate:PropTypes.func, 
-    addNote:PropTypes.func,
-    submitNote:PropTypes.func
-}
+
 const StyledModal = styled.div`
 width: 100vw;
 height:100vh;
@@ -55,7 +49,8 @@ justify-content:center;
 }
 `
 
-const TodoForm = ({closeModal, handleChange, handleSubmit, handleDate})=>{
+const TodoForm = ()=>{
+    const {closeModal, handleChange, handleSubmit, handleDate} = useContext(FormContext)
 return(
 <StyledForm className="todo-form">
 <div className="header" onClick={closeModal} >&#215;</div>
@@ -79,13 +74,8 @@ return(
 )
 }
 
-TodoForm.propTypes={
-    closeModal:PropTypes.func,
-    handleChange:PropTypes.func,
-    handleSubmit:PropTypes.func,
-    handleDate:PropTypes.func
-}
-const NoteForm = ({closeModal, addNote, submitNote})=>{
+const NoteForm = ()=>{
+    const {closeModal, addNote, submitNote} = useContext(FormContext);
     return (
         <StyledForm className="note-form">
            <div className="header" onClick={closeModal}>
@@ -102,11 +92,7 @@ const NoteForm = ({closeModal, addNote, submitNote})=>{
         </StyledForm>
     )
 }
-NoteForm.propTypes = {
-    closeModal:PropTypes.func,
-    addNote:PropTypes.func,
-    submitNote:PropTypes.func
-}
+
 const StyledForm = styled.div`
 background-color:papayawhip;
 font-size:1.4rem;

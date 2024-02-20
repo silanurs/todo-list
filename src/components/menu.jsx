@@ -1,36 +1,21 @@
-import {Routes, Route, NavLink} from 'react-router-dom'
-import Todos from './todos';
-import Today from './today';
-import Year from './year'
-import Notes from './notes';
-import PropTypes from 'prop-types';
+import { NavLink} from 'react-router-dom'
+
 import styled from 'styled-components';
-const Menu = ({todos, setModalOpen,notes, removeTodo, removeNote}) => {
+const Menu = () => {
     return (
         <>
         <StyledNav>
-            <NavLink to="/todo-list/" className="link">Home</NavLink>
-            <NavLink to="/Today" className="link">Today</NavLink>
-            <NavLink to="/Year" className="link">This Year</NavLink>
-            <NavLink to="/Notes" className="link">Notes</NavLink>
+            <NavLink to="Home" className="link">Home</NavLink>
+            <NavLink to="Today" className="link">Today</NavLink>
+            <NavLink to="Year" className="link">This Year</NavLink>
+            <NavLink to="Notes" className="link">Notes</NavLink>
         </StyledNav>
-        <Routes>
-            <Route path="/todo-list/" exact element={<Todos todos={todos} setModalOpen={setModalOpen} removeTodo={removeTodo}></Todos>}></Route>
-            <Route path="/Today" element={<Today todos={todos} removeTodo={removeTodo}></Today>}></Route>
-            <Route path="/Year" element={<Year todos={todos} removeTodo={removeTodo}></Year>}></Route>
-            <Route path="/Notes" element={<Notes notes={notes} setModalOpen={setModalOpen} removeNote={removeNote}></Notes>}></Route>
-        </Routes>
+   
         </>
 
     )
 }
-Menu.propTypes={
-    todos:PropTypes.array,
-    setModalOpen:PropTypes.func,
-    notes:PropTypes.array,
-    removeTodo:PropTypes.func,
-    removeNote:PropTypes.func
-}
+
 const StyledNav = styled.nav`
 grid-area:menu;
 display:flex;

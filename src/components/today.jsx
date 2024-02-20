@@ -1,7 +1,9 @@
-import PropTypes from "prop-types"
 import StyledMain from "./styles/container"
 import StyledList from "./styles/listItem"
-const Today = ({todos, removeTodo})=>{
+import { useContext } from "react";
+import { TodoContext } from "../App";
+const Today = ()=>{
+    const {todos, removeTodo} = useContext(TodoContext)
     const currentDay = new Date()
     const arr = currentDay.toString().split(" ").slice(1,4)
     const todoDates= todos.map(todo=>({...todo, date:todo.date.slice(0,6).concat(todo.date.slice(7)).split(" ")})); 
@@ -28,8 +30,5 @@ const Today = ({todos, removeTodo})=>{
     
 
 }
-Today.propTypes={
-    todos:PropTypes.array,
-    removeTodo:PropTypes.func
-}
+
 export default Today
