@@ -14,7 +14,6 @@ const router = createBrowserRouter([
     children:[
       {
         index:true,
-        path:"Home",
         element:<Todos></Todos>
       },
       {
@@ -43,3 +42,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 
 
+history

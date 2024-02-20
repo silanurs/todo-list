@@ -1,14 +1,14 @@
-import { NavLink} from 'react-router-dom'
+import { Link} from 'react-router-dom'
 
 import styled from 'styled-components';
 const Menu = () => {
     return (
         <>
         <StyledNav>
-            <NavLink to="Home" className="link">Home</NavLink>
-            <NavLink to="Today" className="link">Today</NavLink>
-            <NavLink to="Year" className="link">This Year</NavLink>
-            <NavLink to="Notes" className="link">Notes</NavLink>
+            <Link to="" className="link">Home</Link>
+            <Link to="Today" className="link">Today</Link>
+            <Link to="Year" className="link">This Year</Link>
+            <Link to="Notes" className="link">Notes</Link>
         </StyledNav>
    
         </>
@@ -31,8 +31,6 @@ a{
     text-decoration: none; 
     color:#BF4F74
 }
-.active{
-    text-decoration: underline;
-  }
+
 `
 export default Menu;
