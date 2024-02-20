@@ -9,6 +9,7 @@ font-size:1rem;
 
 .delete{
     font-size:2rem;
+    cursor:pointer;
   }
   .delete:hover{
     font-weight: bolder;
